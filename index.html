@@ -8,7 +8,7 @@
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f4f7fc;--bg2:#e6ecf7;--tx:#0b1326;--mut:#4a5876;--acc:#0079b8;--hot:#d11a4a;--warn:#b86e00;--card:#fff;--ln:#c9d4e8}}
 :root[data-theme="light"]{--bg:#f4f7fc;--bg2:#e6ecf7;--tx:#0b1326;--mut:#4a5876;--acc:#0079b8;--hot:#d11a4a;--warn:#b86e00;--card:#fff;--ln:#c9d4e8}
 :root[data-theme="dark"]{--bg:#070b14;--bg2:#0d1424;--tx:#e8eefc;--mut:#93a0bd;--acc:#00e5ff;--hot:#ff3d6e;--warn:#ffb020;--card:#101a2e;--ln:#22304d}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
 body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
 h1,h2,h3,.big{font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.05;margin:0}
 section{padding:84px 20px;max-width:1040px;margin:auto}
@@ -64,6 +64,9 @@ footer{padding:40px 20px 60px;text-align:center;color:var(--mut);font-size:14px;
 @keyframes fl{50%{transform:translateY(-10px) rotate(1.2deg)}}
 .pill{display:inline-block;background:var(--card);border:1px solid var(--ln);border-radius:99px;padding:4px 12px;font-size:13px;color:var(--mut);margin:4px 6px 0 0}
 .src{font-size:13px;color:var(--mut)}.src a{color:var(--acc)}
+.jump{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:var(--bg);border-bottom:1px solid var(--ln);scrollbar-width:none;justify-content:safe center}
+.jump::-webkit-scrollbar{display:none}.jump a{white-space:nowrap;text-decoration:none;color:var(--tx);border:1px solid var(--ln);background:var(--card);padding:8px 14px;border-radius:99px;font-size:14px;font-weight:600}
+.jump a.go{background:linear-gradient(90deg,var(--acc),#7a5cff);color:#04101c;border:0}
 .fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;box-shadow:0 6px 30px #00e5ff55}
 .tw{overflow-x:auto;margin-top:18px}table.t{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}.t th,.t td{padding:11px 12px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top;color:var(--mut)}.t th{color:var(--acc);font-size:12px;letter-spacing:.12em;text-transform:uppercase}.t td:first-child{font:700 22px "Space Grotesk",sans-serif;color:var(--tx)}.t td b{color:var(--tx)}
 .gens{display:grid;grid-template-columns:repeat(auto-fit,minmax(64px,1fr));gap:8px;margin:22px 0 8px}.gens div{background:var(--card);border:1px solid var(--hot);border-radius:10px;padding:12px 4px;text-align:center;position:relative;box-shadow:0 0 14px #ff3d6e33}.gens b{display:block;font:700 24px "Space Grotesk",sans-serif}.gens small{color:var(--mut);font-size:11px;letter-spacing:.1em}.gens div:before{content:"";position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--hot);animation:bl 1.2s infinite}
@@ -82,6 +85,8 @@ footer{padding:40px 20px 60px;text-align:center;color:var(--mut);font-size:14px;
 <div class="count" aria-label="Countdown to December 1, 2026"><div><b id="d">--</b><small>days</small></div><div><b id="h">--</b><small>hrs</small></div><div><b id="m">--</b><small>min</small></div><div><b id="s">--</b><small>sec</small></div></div>
 </div>
 </header>
+<nav class="jump" aria-label="Jump to section"><a href="#scale">Scale</a><a href="#generators">Generators</a><a href="#letter">Marietta, GA: councilman’s letter</a><a href="#ask">Our asks</a><a class="go" href="#email">Email Council</a></nav>
+
 
 <section class="rv">
 <div class="card" style="border-color:var(--acc);margin-bottom:26px"><div class="n" style="color:var(--acc)">UPDATE</div><h3>No vote on Nov. 24. Your voice still counts.</h3><p>The annexation will <b>not</b> be voted on at the Tuesday, Nov. 24 Town Council meeting (6:00 PM, Dick M. Johnson Civic Center, 829 Pine Dr.), but you can still attend and give <b>public comment</b>. The next meeting where it could be discussed is the <b>Planning Commission on Tuesday, Dec. 1 at 6:00 PM</b>. Come to both.</p></div>
@@ -108,8 +113,91 @@ footer{padding:40px 20px 60px;text-align:center;color:var(--mut);font-size:14px;
 <p>At an average continuous draw of about 1.2 kW per American home (a rough rule of thumb), each square below is ~100 homes.</p>
 <div class="homes" id="homes"></div>
 <div class="legend"><span style="--c:var(--acc)">2.5 MW ≈ 2,000 homes</span><span style="--c:var(--hot)">20 MW ≈ 16,000 homes</span></div>
-<p>The cap is <b>8× the starting load</b>, and 16,000 homes’ worth of electricity is far more than a town of a few thousand residents uses. All of it would sit behind a Waffle House on Highway 17 Business, beside homes and the town’s main commercial corridor.</p>
+<p>The cap is <b>8× the starting load</b>, and 16,000 homes’ worth of electricity is far more than a town of a few thousand residents uses. All of it would sit behind a Waffle House on Highway 17 Business.</p>
 </div></section>
+
+<section class="rv" id="generators">
+<div class="kick">The hardware</div>
+<h2>The generator lineup (Marietta, 18 MW).</h2>
+<p>This is the equipment list from Prime’s own sound study for the Marietta conversion. Nine diesel generators, each rated 2.5 MW. Surfside’s FAQ says only that generators may be used. It names none.</p>
+<div class="gens"><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div></div>
+<p><b>9 × 2.5 MW = 22.5 MW of diesel standby capacity</b> at an 18 MW facility.</p>
+<div class="tw"><table class="t"><thead><tr><th>Qty</th><th>Equipment</th><th>Model</th><th>Key specs</th></tr></thead><tbody>
+<tr><td>9</td><td><b>Diesel emergency generators</b></td><td>Cummins 2500DQKAN</td><td>QSK60 engine, 2,500 kW standby each</td></tr>
+<tr><td>9</td><td><b>Generator enclosures</b></td><td>GPC GWE-G3-2500-3960</td><td>Level 3 sound-attenuated; guaranteed 75 dBA at 7 m</td></tr>
+<tr><td>9</td><td><b>Air-cooled chillers</b></td><td>YORK YVAA0456</td><td>8 running, 1 spare; 106 dBA each before fan-discharge silencers</td></tr>
+<tr><td>9</td><td><b>Generator transformers</b></td><td>3,000 kVA units</td><td>One per generator</td></tr>
+</tbody></table></div>
+<div class="cards">
+<div class="card"><div class="n">TESTING</div><h3>Testing schedule</h3><p>Prime’s letter says generator testing would be daytime only, one generator at a time. Marietta tied generator use to the state’s applicable annual limit. What Surfside would allow is not stated, so ask.</p></div>
+<div class="card"><div class="n">FUEL</div><h3>Renewable diesel</h3><p>Prime committed to renewable diesel (HVO or equivalent). The council member’s report says Council added continuous emissions monitoring.</p></div>
+<div class="card"><div class="n">FUEL BURN</div><h3>~173 gallons an hour</h3><p>Cummins’ data sheet for this model lists about 173 gallons of diesel per hour at full load, per generator. It is listed as an EPA Tier 2 emergency-rated engine.</p></div>
+<div class="card"><div class="n">ASK SURFSIDE</div><h3>What will be here?</h3><p>Manufacturer, model, number, size, fuel and storage, testing schedule, and any air permit, all in writing before any approval.</p></div>
+</div>
+<p>
+<a class="pill" href="https://www.cummins.com/generators/dqkan" target="_blank" rel="noopener">Cummins DQKAN product page</a>
+<a class="pill" href="https://globalpwr.com/wp-content/uploads/cut-sheets/gps-cummins-2500-kw-dqkan-data-sheet.pdf" target="_blank" rel="noopener">DQKAN data sheet NAD-5919 (distributor copy)</a>
+<a class="pill" href="https://www.cummins.com/generators/qsk60" target="_blank" rel="noopener">Cummins QSK60 engine series</a>
+<a class="pill" href="https://www.mariettaga.gov/AgendaCenter/ViewFile/Item/6592?fileID=63409" target="_blank" rel="noopener">Bowman sound study (Marietta)</a>
+</p>
+<p class="src">Source: Bowman Consulting sound study for Prime Group Holdings, Aug. 2026, Sec. 4.1 and Table 5 (City of Marietta agenda packet, Aug. 12, 2026). Prime’s letter says equipment may be substituted later. Surfside’s equipment, if any, has not been disclosed.</p>
+</section>
+
+<section class="rv" id="marietta">
+<div class="kick">It already happened next door (in Georgia)</div>
+<h2>Marietta, GA: same company, same pitch.</h2>
+<p>Prime Storage’s Powers Ferry Place site in Marietta, Georgia, is the closest public paper trail to what is proposed in Surfside. The city’s own staff report describes an <b>18 MW data center</b> inside an existing self-storage building, with most exterior storage rows demolished for an equipment yard. The Town can read the same documents we did.</p>
+<div class="card" id="letter" style="border-color:var(--acc);margin:24px 0"><div class="n" style="color:var(--acc)">EASY READ</div><h3>Why a Marietta councilman voted yes, and why their location mattered</h3><p>In this letter, Council Member Carlyle Kent explains his vote. He leans heavily on location: a 10.7-acre site already commercially developed for decades, right beside Interstate 75, and used as self-storage for about 30 years. Marietta’s own sound study found the neighbors already live with about 55 dBA of nighttime noise, mostly highway traffic. Surfside has no interstate. Read it, then compare the two sites. It’s written from his side, and the large-text version includes Prime’s signed stipulation letter.</p><p style="margin-top:14px"><a class="btn" href="https://drive.google.com/file/d/1XzzN3_4BjuJbdQ2JhfHdxBiizL7oqE97/view" target="_blank" rel="noopener">Open the letter (PDF)</a></p></div>
+<div class="tl">
+<div class="d"><b>June 18, 2026 · Staff analysis</b><span>City staff find the request does not align with the Comprehensive Plan, and note the applicant gave no technical specs for cooling or noise.</span></div>
+<div class="d"><b>July 1 · Planning Commission</b><span>Recommends rezoning 4–3.</span></div>
+<div class="d"><b>July 8 · City Council</b><span>Tables the vote 7–0 before a packed chamber. Council also pauses new data center applications, though the pause did not cover this one.</span></div>
+<div class="now"><b>Aug. 12 · City Council</b><span>Approves 5–2 after hours of protest. A sound study (dated Aug. 10, stamped received Aug. 12) and Prime’s stipulations (Aug. 11) landed in the packet right at the vote.</span></div>
+<div class="d"><b>Weeks later</b><span>Council takes up a citywide data center moratorium.</span></div>
+</div>
+<div class="cards">
+<div class="card"><div class="n">THE SAME PITCH</div><h3>“Low latency” for traffic and hospitals</h3><p>Prime’s Marietta application justifies the use with traffic controls and medical facilities, nearly the same 911/hospital argument in Surfside’s FAQ.</p></div>
+<div class="card"><div class="n">NO SPECS</div><h3>“Closed-loop air-cooled”</h3><p>Staff noted air-cooled systems save water but need high-velocity fans, and that no specifications were provided to verify how they’d be designed or operated.</p></div>
+<div class="card"><div class="n">NO RULES</div><h3>Code didn’t define a data center</h3><p>Marietta staff said the zoning code had no data-center use, size distinction, or equipment, noise or screening standards. Ask: does Surfside’s code?</p></div>
+<div class="card"><div class="n">NOISE</div><h3>They measure bass, too</h3><p>Marietta’s ordinance limits residential noise to 65 dBA / 84 dBC by day and 60 dBA / 79 dBC at night. The C-weighted figure is the one that catches low-frequency hum. Ask Surfside for dBC limits.</p></div>
+<div class="card"><div class="n">THE MIX-UP</div><h3>How big is it, really?</h3><p>The applicant’s narrative says about 40% of the building would be converted, then later says about 22%. Surfside should demand one clear, signed number.</p></div>
+<div class="card"><div class="n">THE LAWYERS</div><h3>Constitutional challenge filed</h3><p>The application included a constitutional challenge to the city’s zoning, which typically preserves the right to sue if denied. This is the legal posture a small town should expect.</p></div>
+</div>
+<p>Marietta’s lesson is hard to miss: staff flagged the gaps, the code had no standards, and the city approved first. Nearby jurisdictions the staff report names, including Cobb County, Atlanta, Athens-Clarke and Clayton County, adopted moratoriums or new standards, and Marietta itself soon moved toward a pause. <b>Surfside can do the sensible order of operations: write the rules, then decide.</b></p>
+<p>
+<a class="pill" href="https://www.mariettaga.gov/AgendaCenter/ViewFile/Item/6492?fileID=62823" target="_blank" rel="noopener">Staff report &amp; application (Z2026-12)</a>
+<a class="pill" href="https://www.mariettaga.gov/AgendaCenter/ViewFile/Agenda/_08122026-3013?html=true" target="_blank" rel="noopener">Aug. 12 Council agenda packet</a>
+<a class="pill" href="https://www.mariettaga.gov/AgendaCenter/ViewFile/Item/6592?fileID=63409" target="_blank" rel="noopener">Bowman sound study</a>
+<a class="pill" href="https://www.fox5atlanta.com/news/marietta-council-approves-data-center-despite-six-month-moratorium" target="_blank" rel="noopener">FOX 5: 5–2 approval</a>
+<a class="pill" href="https://atlpresscollective.com/2026/07/11/marietta-data-center/" target="_blank" rel="noopener">July 8 tabling</a>
+<a class="pill" href="https://www.mdjonline.com/news/local/marietta-advances-powers-ferry-data-center-in-4-3-vote/article_ec44d6d0-f46c-4489-b118-6d9526d80e35.html" target="_blank" rel="noopener">MDJ: 4–3 Planning Commission</a>
+</p>
+<h3 style="font-size:28px;margin-top:40px">What Marietta finally required</h3>
+<p>A Marietta council member who voted <i>yes</i> published a report listing the conditions Council attached to the approval, including Prime’s own Aug. 11 stipulation letter. Whatever you think of the vote, it shows what a town can demand, and what Surfside’s FAQ does not promise.</p>
+<div class="cards">
+<div class="card"><div class="n">NOISE</div><h3>56 dBA / 77 dBC, always</h3><p>Hard limits with no emergency exception, continuous monitoring at the residential property line, and an independent study within three months of completion. Prime had offered only annual reporting; Council changed it.</p></div>
+<div class="card"><div class="n">GENERATORS</div><h3>Nine 2.5 MW diesel generators</h3><p>Prime’s sound study models nine Cummins 2,500 kW diesel generators, about 22.5 MW of standby power. Prime’s letter says testing would be daytime only, one generator at a time. Council tied generator use to the state’s applicable annual limit and added continuous emissions monitoring. Prime also committed to renewable diesel.</p></div>
+<div class="card"><div class="n">HEAT</div><h3>Independent heat study</h3><p>A computational heat-dispersion study is required after installation, against temperature-rise limits near the equipment yard and out to 300 feet.</p></div>
+<div class="card"><div class="n">LOCK-IN</div><h3>Site-specific, under 50%</h3><p>The data use is limited to under half the largest building and tied to the approved plans. Council had to expressly bar conversion of two other storage sites. Prime’s own letter says capability may grow.</p></div>
+<div class="card"><div class="n">LOCATION</div><h3>Why Marietta’s site is different</h3><p>His report stresses the site’s setting: 10.7 acres beside I-75, commercial for decades, with traffic noise already a loud baseline. Surfside’s site is roughly 6 acres (about 4 in Town plus the 2.3 being annexed), off North King’s Highway behind a Waffle House, with no interstate. Ask what the neighbors’ baseline noise is.</p></div>
+<div class="card"><div class="n">THE CATCH</div><h3>Marietta owns its power company</h3><p>The report counts about $4.2M a year in utility profit, part of roughly $7.5M in estimated annual revenue, because Marietta runs its own electric utility. Surfside’s FAQ points to Santee Cooper, so don’t assume the same payoff here.</p></div>
+<div class="card"><div class="n">THE GAP</div><h3>Surfside has promises, not terms</h3><p>The FAQ describes none of this as enforceable: plain decibel limits with no stated low-frequency (dBC) standard, no continuous monitoring, no stated cap on generator testing, no independent studies, no site lock.</p></div>
+</div>
+<h3 style="font-size:28px;margin-top:40px">Inside Prime’s sound study</h3>
+<p>Prime’s consultant, Bowman Consulting, filed a 10-page sound study with Marietta. It is the first look at the actual equipment behind one of these projects, and the first public answer to “will there be generators?”</p>
+<div class="cards">
+<div class="card"><div class="n">THE EQUIPMENT</div><h3>The exact models</h3><p><b>Generators:</b> 9 × Cummins 2500DQKAN diesel (QSK60 engine, 2,500 kW standby each), in GPC GWE-G3-2500-3960 Level 3 enclosures guaranteed at 75 dBA at 7 m.<br><b>Chillers:</b> 9 × YORK YVAA0456 air-cooled (8 running, 1 spare), 106 dBA each before silencers.<br><b>Transformers:</b> 9 × 3,000 kVA.<br>A 20-ft barrier encloses the equipment yard and a 10-ft barrier runs along the neighbors. Equipment may be substituted later. If Surfside’s project is similar, expect equipment on this scale. Ask.</p></div>
+<div class="card"><div class="n">THE LABEL</div><h3>“Data Center Campus”</h3><p>The study is titled “GA10 Data Center Campus” and calls the project a data center facility. It also describes a two-story building, while the city staff report describes a one-story one. Ask which is right.</p></div>
+<div class="card"><div class="n">MODELED</div><h3>Predicted, not measured</h3><p>The silencers and generator enclosures hadn’t been bought yet. The study assumes their performance as minimum requirements, to be confirmed later. The only real measurement was two days of ambient sound near the neighbors.</p></div>
+<div class="card"><div class="n">THE RESULT</div><h3>47–49 dBA predicted</h3><p>Worst-case modeled levels at the neighbors: 47 dBA in normal operation and 49 dBA with one generator testing (57 and 68 dBC). Existing night ambient there was 55 dBA, mostly from I-75.</p></div>
+<div class="card"><div class="n">LOOSE LIMIT?</div><h3>56 dBA vs. 49 predicted</h3><p>The council member’s report says the final 56 dBA / 77 dBC limits match the study’s modeled levels. The study’s maxima are lower, so the limits leave roughly 7–9 dBA and 9–20 dBC of headroom. Possibly to allow for ambient noise, but worth asking.</p></div>
+<div class="card"><div class="n">SURFSIDE’S LIMIT</div><h3>50 decibels overnight</h3><p>Marietta’s modeled worst case of 49 dBA is within 1 dB of the Town’s overnight limit next to homes. Also ask whether Surfside’s noise code exempts emergency generator operation, as Marietta’s does.</p></div>
+</div>
+<p><b>Bottom line:</b> strong protections are achievable, but Marietta got them by demanding them in writing, before the final approval. Surfside can do the same.</p>
+<p><a class="pill" href="https://drive.google.com/file/d/1XzzN3_4BjuJbdQ2JhfHdxBiizL7oqE97/view" target="_blank" rel="noopener">Council Member Carlyle Kent’s report + Prime’s stipulation letter</a></p>
+<p class="src">The report is a pro-approval council member’s summary, shared on his Facebook page. Verify the final adopted conditions against Marietta’s official minutes. Generator count and size are in an exhibit not reproduced in the report.</p>
+<p class="src">Staff-report details are from the June 18, 2026 version of the City of Marietta analysis; a July 17 update exists. Votes are per local news reporting.</p>
+</section>
 
 <section class="rv">
 <div class="kick">The label</div>
@@ -141,87 +229,13 @@ footer{padding:40px 20px 60px;text-align:center;color:var(--mut);font-size:14px;
 <p class="src">Sources: Business Wire (Prime Group, Apr. 21, 2026); Data Center Dynamics; Blackridge Research; WHRO/WVTF; datacentermap.com. Whether Azure workloads would run in Surfside has not been stated publicly. We’re asking Council to ask.</p>
 </section>
 
-<section class="rv" id="generators">
-<div class="kick">The hardware</div>
-<h2>The generator lineup (Marietta, 18 MW).</h2>
-<p>This is the equipment list from Prime’s own sound study for the Marietta conversion. Nine diesel generators, each rated 2.5 MW. Surfside’s FAQ says only that generators may be used. It names none.</p>
-<div class="gens"><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div><div><b>2.5</b><small>MW</small></div></div>
-<p><b>9 × 2.5 MW = 22.5 MW of diesel standby capacity</b> at an 18 MW facility.</p>
-<div class="tw"><table class="t"><thead><tr><th>Qty</th><th>Equipment</th><th>Model</th><th>Key specs</th></tr></thead><tbody>
-<tr><td>9</td><td><b>Diesel emergency generators</b></td><td>Cummins 2500DQKAN</td><td>QSK60 engine, 2,500 kW standby each</td></tr>
-<tr><td>9</td><td><b>Generator enclosures</b></td><td>GPC GWE-G3-2500-3960</td><td>Level 3 sound-attenuated; guaranteed 75 dBA at 7 m</td></tr>
-<tr><td>9</td><td><b>Air-cooled chillers</b></td><td>YORK YVAA0456</td><td>8 running, 1 spare; 106 dBA each before fan-discharge silencers</td></tr>
-<tr><td>9</td><td><b>Generator transformers</b></td><td>3,000 kVA units</td><td>One per generator</td></tr>
-</tbody></table></div>
-<div class="cards">
-<div class="card"><div class="n">TESTING</div><h3>150 engine-hours a year</h3><p>Prime’s stipulation letter caps scheduled testing at 150 combined hours a year, daytime, one generator at a time. Startup, commissioning and real emergencies don’t count toward it.</p></div>
-<div class="card"><div class="n">FUEL</div><h3>Renewable diesel</h3><p>Prime committed to renewable diesel (HVO or equivalent). The council member’s report says Council added continuous emissions monitoring.</p></div>
-<div class="card"><div class="n">ASK SURFSIDE</div><h3>What will be here?</h3><p>Manufacturer, model, number, size, fuel and storage, testing schedule, and any air permit, all in writing before any approval.</p></div>
-</div>
-<p class="src">Source: Bowman Consulting sound study for Prime Group Holdings, Aug. 2026, Sec. 4.1 and Table 5 (City of Marietta agenda packet, Aug. 12, 2026). Prime’s letter says equipment may be substituted later. Surfside’s equipment, if any, has not been disclosed.</p>
-</section>
-
-<section class="rv" id="marietta">
-<div class="kick">It already happened next door (in Georgia)</div>
-<h2>Marietta, GA: same company, same pitch.</h2>
-<p>Prime Storage’s Powers Ferry Place site in Marietta, Georgia, is the closest public paper trail to what is proposed in Surfside. The city’s own staff report describes an <b>18 MW data center</b> inside an existing self-storage building, with most exterior storage rows demolished for an equipment yard. The Town can read the same documents we did.</p>
-<div class="tl">
-<div class="d"><b>June 18, 2026 · Staff analysis</b><span>City staff find the request does not align with the Comprehensive Plan, and note the applicant gave no technical specs for cooling or noise.</span></div>
-<div class="d"><b>July 1 · Planning Commission</b><span>Recommends rezoning 4–3.</span></div>
-<div class="d"><b>July 8 · City Council</b><span>Tables the vote 7–0 before a packed chamber. Council also pauses new data center applications, though the pause did not cover this one.</span></div>
-<div class="now"><b>Aug. 12 · City Council</b><span>Approves 5–2 after hours of protest. A sound study (dated Aug. 10, stamped received Aug. 12) and Prime’s stipulations (Aug. 11) landed in the packet right at the vote.</span></div>
-<div class="d"><b>Weeks later</b><span>Council takes up a citywide data center moratorium.</span></div>
-</div>
-<div class="cards">
-<div class="card"><div class="n">THE SAME PITCH</div><h3>“Low latency” for traffic and hospitals</h3><p>Prime’s Marietta application justifies the use with traffic controls and medical facilities, nearly the same 911/hospital argument in Surfside’s FAQ.</p></div>
-<div class="card"><div class="n">NO SPECS</div><h3>“Closed-loop air-cooled”</h3><p>Staff noted air-cooled systems save water but need high-velocity fans, and that no specifications were provided to verify how they’d be designed or operated.</p></div>
-<div class="card"><div class="n">NO RULES</div><h3>Code didn’t define a data center</h3><p>Marietta staff said the zoning code had no data-center use, size distinction, or equipment, noise or screening standards. Ask: does Surfside’s code?</p></div>
-<div class="card"><div class="n">NOISE</div><h3>They measure bass, too</h3><p>Marietta’s ordinance limits residential noise to 65 dBA / 84 dBC by day and 60 dBA / 79 dBC at night. The C-weighted figure is the one that catches low-frequency hum. Ask Surfside for dBC limits.</p></div>
-<div class="card"><div class="n">THE MIX-UP</div><h3>How big is it, really?</h3><p>The applicant’s narrative says about 40% of the building would be converted, then later says about 22%. Surfside should demand one clear, signed number.</p></div>
-<div class="card"><div class="n">THE LAWYERS</div><h3>Constitutional challenge filed</h3><p>The application included a constitutional challenge to the city’s zoning, which typically preserves the right to sue if denied. This is the legal posture a small town should expect.</p></div>
-</div>
-<p>Marietta’s lesson is hard to miss: staff flagged the gaps, the code had no standards, and the city approved first. Nearby jurisdictions the staff report names, including Cobb County, Atlanta, Athens-Clarke and Clayton County, adopted moratoriums or new standards, and Marietta itself soon moved toward a pause. <b>Surfside can do the sensible order of operations: write the rules, then decide.</b></p>
-<p>
-<a class="pill" href="https://www.mariettaga.gov/AgendaCenter/ViewFile/Item/6492?fileID=62823" target="_blank" rel="noopener">Staff report &amp; application (Z2026-12)</a>
-<a class="pill" href="https://www.mariettaga.gov/AgendaCenter/ViewFile/Agenda/_08122026-3013?html=true" target="_blank" rel="noopener">Aug. 12 Council agenda packet</a>
-<a class="pill" href="https://www.mariettaga.gov/AgendaCenter/ViewFile/Item/6592?fileID=63409" target="_blank" rel="noopener">Bowman sound study</a>
-<a class="pill" href="https://www.fox5atlanta.com/news/marietta-council-approves-data-center-despite-six-month-moratorium" target="_blank" rel="noopener">FOX 5: 5–2 approval</a>
-<a class="pill" href="https://atlpresscollective.com/2026/07/11/marietta-data-center/" target="_blank" rel="noopener">July 8 tabling</a>
-<a class="pill" href="https://www.mdjonline.com/news/local/marietta-advances-powers-ferry-data-center-in-4-3-vote/article_ec44d6d0-f46c-4489-b118-6d9526d80e35.html" target="_blank" rel="noopener">MDJ: 4–3 Planning Commission</a>
-</p>
-<h3 style="font-size:28px;margin-top:40px">What Marietta finally required</h3>
-<p>A Marietta council member who voted <i>yes</i> published a report listing the conditions Council attached to the approval, including Prime’s own Aug. 11 stipulation letter. Whatever you think of the vote, it shows what a town can demand, and what Surfside’s FAQ does not promise.</p>
-<div class="cards">
-<div class="card"><div class="n">NOISE</div><h3>56 dBA / 77 dBC, always</h3><p>Hard limits with no emergency exception, continuous monitoring at the residential property line, and an independent study within three months of completion. Prime had offered only annual reporting; Council changed it.</p></div>
-<div class="card"><div class="n">GENERATORS</div><h3>Nine 2.5 MW diesel generators</h3><p>Prime’s sound study models nine Cummins 2,500 kW diesel generators, about 22.5 MW of standby power. Prime’s letter caps scheduled testing at 150 combined hours a year, daytime only, one generator at a time. Startup, commissioning and real emergencies are not counted. Council added continuous emissions monitoring. Prime also committed to renewable diesel.</p></div>
-<div class="card"><div class="n">HEAT</div><h3>Independent heat study</h3><p>A computational heat-dispersion study is required after installation, against temperature-rise limits near the equipment yard and out to 300 feet.</p></div>
-<div class="card"><div class="n">LOCK-IN</div><h3>Site-specific, under 50%</h3><p>The data use is limited to under half the largest building and tied to the approved plans. Council had to expressly bar conversion of two other storage sites. Prime’s own letter says capability may grow.</p></div>
-<div class="card"><div class="n">THE CATCH</div><h3>Marietta owns its power company</h3><p>The report counts about $4.2M a year in utility profit, part of roughly $7.5M in estimated annual revenue, because Marietta runs its own electric utility. Surfside’s FAQ points to Santee Cooper, so don’t assume the same payoff here.</p></div>
-<div class="card"><div class="n">THE GAP</div><h3>Surfside has promises, not terms</h3><p>The FAQ describes none of this as enforceable: dBA-only noise limits, no continuous monitoring, no generator-hour cap, no independent studies, no site lock.</p></div>
-</div>
-<h3 style="font-size:28px;margin-top:40px">Inside Prime’s sound study</h3>
-<p>Prime’s consultant, Bowman Consulting, filed a 10-page sound study with Marietta. It is the first look at the actual equipment behind one of these projects, and the first public answer to “will there be generators?”</p>
-<div class="cards">
-<div class="card"><div class="n">THE EQUIPMENT</div><h3>The exact models</h3><p><b>Generators:</b> 9 × Cummins 2500DQKAN diesel (QSK60 engine, 2,500 kW standby each), in GPC GWE-G3-2500-3960 Level 3 enclosures guaranteed at 75 dBA at 7 m.<br><b>Chillers:</b> 9 × YORK YVAA0456 air-cooled (8 running, 1 spare), 106 dBA each before silencers.<br><b>Transformers:</b> 9 × 3,000 kVA.<br>A 20-ft barrier encloses the equipment yard and a 10-ft barrier runs along the neighbors. Equipment may be substituted later. If Surfside’s project is similar, expect equipment on this scale. Ask.</p></div>
-<div class="card"><div class="n">THE LABEL</div><h3>“Data Center Campus”</h3><p>The study is titled “GA10 Data Center Campus” and calls the project a data center facility. It also describes a two-story building, while the city staff report describes a one-story one. Ask which is right.</p></div>
-<div class="card"><div class="n">MODELED</div><h3>Predicted, not measured</h3><p>The silencers and generator enclosures hadn’t been bought yet. The study assumes their performance as minimum requirements, to be confirmed later. The only real measurement was two days of ambient sound near the neighbors.</p></div>
-<div class="card"><div class="n">THE RESULT</div><h3>47–49 dBA predicted</h3><p>Worst-case modeled levels at the neighbors: 47 dBA in normal operation and 49 dBA with one generator testing (57 and 68 dBC). Existing night ambient there was 55 dBA, mostly from I-75.</p></div>
-<div class="card"><div class="n">LOOSE LIMIT?</div><h3>56 dBA vs. 49 predicted</h3><p>The council member’s report says the final 56 dBA / 77 dBC limits match the study’s modeled levels. The study’s maxima are lower, so the limits leave roughly 7–9 dBA and 9–20 dBC of headroom. Possibly to allow for ambient noise, but worth asking.</p></div>
-<div class="card"><div class="n">SURFSIDE’S LIMIT</div><h3>50 decibels overnight</h3><p>Marietta’s modeled worst case of 49 dBA is within 1 dB of the Town’s overnight limit next to homes. Also ask whether Surfside’s noise code exempts emergency generator operation, as Marietta’s does.</p></div>
-</div>
-<p><b>Bottom line:</b> strong protections are achievable, but Marietta got them by demanding them in writing, before the final approval. Surfside can do the same.</p>
-<p><a class="pill" href="https://drive.google.com/file/d/1XzzN3_4BjuJbdQ2JhfHdxBiizL7oqE97/view" target="_blank" rel="noopener">Council Member Carlyle Kent’s report + Prime’s stipulation letter</a></p>
-<p class="src">The report is a pro-approval council member’s summary, shared on his Facebook page. Verify the final adopted conditions against Marietta’s official minutes. Generator count and size are in an exhibit not reproduced in the report.</p>
-<p class="src">Staff-report details are from the June 18, 2026 version of the City of Marietta analysis; a July 17 update exists. Votes are per local news reporting.</p>
-</section>
-
 <section class="bg2 rv"><div>
 <div class="kick">Reality check</div>
 <h2>What “up to 20 MW” really means.</h2>
 <div class="cards">
 <div class="card"><div class="n">NOISE</div><h3>Hard to measure, easy to hear</h3><p>Cooling plant and generators produce low-frequency hum that carries through walls and ground. The FAQ’s limits are decibel readings at the property line, but low-frequency noise barely registers on a standard dB(A) meter. Who will test it, how often, and who pays?</p></div>
 <div class="card"><div class="n">GENERATORS</div><h3>Generators: “if used”</h3><p>The FAQ says only that if generators are used, they would run in outages and for “short routine maintenance tests.” The FAQ gives no count, size, fuel type or testing schedule, and doesn’t say whether there will be any. Ask for all of it, plus whether an air permit is needed.</p></div>
-<div class="card"><div class="n">POWER</div><h3>“No rate hike” isn’t “no impact”</h3><p>Even if the project pays for its own upgrades, 20 MW running around the clock is real generation somewhere. Santee Cooper’s mix includes coal and natural gas, so new constant load means more fuel burned. That’s not a bill line item, but it is a cost to the air we breathe on the coast.</p></div>
+<div class="card"><div class="n">POWER</div><h3>“No rate hike” isn’t “no impact”</h3><p>Even if the project pays for its own upgrades, 20 MW running around the clock is real generation somewhere. Santee Cooper’s 2025 energy mix was about 51% coal and 25% natural gas, per its own resource plan, so new constant load likely means more fuel burned. That’s not a bill line item, but it is a cost to the air we breathe on the coast.</p></div>
 <div class="card"><div class="n">MONEY</div><h3>Around $225 million</h3><p>Per a Marietta council member’s report, Prime projects about $225 million of investment for its 18 MW project there. At up to 20 MW, expect a similar order of magnitude: serious money, and serious legal firepower on the other side.</p></div>
 </div>
 <span class="pill">Low-frequency noise</span><span class="pill">Generator emissions</span><span class="pill">Grid load</span><span class="pill">Hurricane risk</span><span class="pill">Coolant loop</span>
@@ -315,7 +329,7 @@ for(var j=0;j<160;j++){var q=document.createElement("i");q.className=j<20?"a":(j
 function fill(){var c=H.children,n=0;var t=setInterval(function(){if(n>=160)return clearInterval(t);c[n].classList.add("on");n++},12)}
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;var el=en.target;el.classList.add("in");
 if(el.id==="scale"){el.querySelectorAll(".bar i").forEach(function(b){var v=parseFloat(b.dataset.w);b.style.width=(Math.log10(v*10)/Math.log10(10000)*100)+"%"});fill()}
-io.unobserve(el)})},{threshold:.15});
+io.unobserve(el)})},{threshold:0,rootMargin:"0px 0px -40px 0px"});
 document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
 var A=["rkrouse","swalls","sfallon","jhiatt","hkohlmann","rlawhorn","cstamey","town","townclerk","gvincent","ssteigerwald","MBrodeur","mgruber"].map(function(u){return u+"@surfsidebeach.org"});
 function mk(){document.getElementById("all").href="mailto:"+A.join(",")+"?subject="+encodeURIComponent("Please delay action on the 610 US-17 BUS annexation")+"&body="+encodeURIComponent(document.getElementById("msg").value)}
